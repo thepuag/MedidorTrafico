@@ -9,10 +9,12 @@ namespace MedidorTrafico
     {
         private IContainer components = null;
         private ComboBox comboInterfaces;
-        private Label labelDownload;
-        private Label labelUpload;
+        private PictureBox pictureDownload;
+        private PictureBox pictureUpload;
+        private Label labelActualDownload;
         private Label labelMaxDownload;
         private Label labelMaxUpload;
+        private Label labelActualUpload;
         private System.Windows.Forms.Timer timer;
 
         protected override void Dispose(bool disposing)
@@ -28,9 +30,11 @@ namespace MedidorTrafico
         {
             components = new Container();
             comboInterfaces = new ComboBox();
-            labelDownload = new Label();
+            pictureDownload = new PictureBox();
+            pictureUpload = new PictureBox();
             labelMaxDownload = new Label();
-            labelUpload = new Label();
+            labelActualDownload = new Label();
+            labelActualUpload = new Label();
             labelMaxUpload = new Label();
             timer = new Timer(components);
             SuspendLayout();
@@ -45,15 +49,21 @@ namespace MedidorTrafico
             comboInterfaces.TabIndex = 0;
             comboInterfaces.SelectedIndexChanged += comboInterfaces_SelectedIndexChanged;
             // 
-            // labelDownload
+            // pictureDownload
             // 
-            labelDownload.AutoSize = true;
-            labelDownload.Font = new Font("Segoe UI", 10F);
-            labelDownload.Location = new Point(18, 52);
-            labelDownload.Name = "labelDownload";
-            labelDownload.Size = new Size(116, 19);
-            labelDownload.TabIndex = 1;
-            labelDownload.Text = "Descarga: 0 MB/s";
+            pictureDownload.Location = new Point(8, 50);
+            pictureDownload.Name = "pictureDownload";
+            pictureDownload.Size = new Size(20, 20);
+            pictureDownload.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureDownload.Image = Properties.Resources.ArrowDown2;
+            // 
+            // pictureUpload
+            // 
+            pictureUpload.Location = new Point(8, 80);
+            pictureUpload.Name = "pictureUpload";
+            pictureUpload.Size = new Size(20, 20);
+            pictureUpload.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureUpload.Image = Properties.Resources.ArrowUp2;
             // 
             // labelMaxDownload
             // 
@@ -65,15 +75,25 @@ namespace MedidorTrafico
             labelMaxDownload.TabIndex = 1;
             labelMaxDownload.Text = "Max: 0 MB/s";
             // 
-            // labelUpload
+            // labelActualDownload
             // 
-            labelUpload.AutoSize = true;
-            labelUpload.Font = new Font("Segoe UI", 10F);
-            labelUpload.Location = new Point(18, 82);
-            labelUpload.Name = "labelUpload";
-            labelUpload.Size = new Size(101, 19);
-            labelUpload.TabIndex = 2;
-            labelUpload.Text = "Subida: 0 MB/s";
+            labelActualDownload.AutoSize = true;
+            labelActualDownload.Font = new Font("Segoe UI", 10F);
+            labelActualDownload.Location = new Point(40, 52);
+            labelActualDownload.Name = "labelActualDownload";
+            labelActualDownload.Size = new Size(98, 19);
+            labelActualDownload.TabIndex = 1;
+            labelActualDownload.Text = "Actual: 0 MB/s";
+            // 
+            // labelActualUpload
+            // 
+            labelActualUpload.AutoSize = true;
+            labelActualUpload.Font = new Font("Segoe UI", 10F);
+            labelActualUpload.Location = new Point(40, 82);
+            labelActualUpload.Name = "labelActualUpload";
+            labelActualUpload.Size = new Size(98, 19);
+            labelActualUpload.TabIndex = 2;
+            labelActualUpload.Text = "Actual: 0 MB/s";
             // 
             // labelMaxUpload
             // 
@@ -96,9 +116,11 @@ namespace MedidorTrafico
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(306, 135);
             Controls.Add(comboInterfaces);
-            Controls.Add(labelDownload);
+            Controls.Add(pictureDownload);
+            Controls.Add(pictureUpload);
+            Controls.Add(labelActualDownload);
             Controls.Add(labelMaxDownload);
-            Controls.Add(labelUpload);
+            Controls.Add(labelActualUpload);
             Controls.Add(labelMaxUpload);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
@@ -110,6 +132,5 @@ namespace MedidorTrafico
             ResumeLayout(false);
             PerformLayout();
         }
-        private Label label1;
     }
 }

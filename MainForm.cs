@@ -12,6 +12,8 @@ namespace MedidorTrafico
         private NetworkInterface interfazSeleccionada;
         private long bytesRecibidosPrevios;
         private long bytesEnviadosPrevios;
+        private double velocidadMaxDescarga = 0;
+        private double velocidadMaxSubida = 0;
 
         public MainForm()
         {
@@ -78,8 +80,8 @@ namespace MedidorTrafico
                     timer.Start();
 
                     // Actualizar labels inmediatamente
-                    labelDownload.Text = "Descarga: 0.00 MB/s";
-                    labelUpload.Text = "Subida: 0.00 MB/s";
+                    labelActualDownload.Text = "Actual: 0.00 MB/s";
+                    labelActualUpload.Text = "Actual: 0.00 MB/s";
                 }
             }
             catch (Exception ex)
@@ -101,8 +103,8 @@ namespace MedidorTrafico
                 if (interfazSeleccionada.OperationalStatus != OperationalStatus.Up)
                 {
                     timer.Stop();
-                    labelDownload.Text = "Interfaz desconectada";
-                    labelUpload.Text = "Interfaz desconectada";
+                    labelActualDownload.Text = "Interfaz desconectada";
+                    labelActualUpload.Text = "Interfaz desconectada";
                     return;
                 }
 
@@ -119,13 +121,29 @@ namespace MedidorTrafico
                 double velocidadDescarga = bytesDescarga / (1024.0 * 1024.0);
                 double velocidadSubida = bytesSubida / (1024.0 * 1024.0);
 
+                
+
+                if (velocidadDescarga >= velocidadMaxDescarga)
+                {
+                    velocidadMaxDescarga = velocidadDescarga;
+                    labelMaxDownload.Text = $"Máx : {velocidadMaxDescarga:F2} MB/s";
+                }
+                if (velocidadSubida >= velocidadMaxSubida)
+                {
+                    velocidadMaxSubida = velocidadSubida;
+                    labelMaxUpload.Text = $"Máx : {velocidadMaxSubida:F2} MB/s";
+                }
                 // Actualizar labels
-                labelDownload.Text = $"Descarga: {velocidadDescarga:F2} MB/s";
-                labelUpload.Text = $"Subida: {velocidadSubida:F2} MB/s";
+                labelActualDownload.Text = $"Actual: {velocidadDescarga:F2} MB/s";
+                labelActualUpload.Text = $"Actual: {velocidadSubida:F2} MB/s";
+                if (velocidadDescarga > 0)
+                {
+                   
+                }
 
                 // Cambiar color según actividad
-                labelDownload.ForeColor = velocidadDescarga > 0.01 ? Color.Green : Color.Black;
-                labelUpload.ForeColor = velocidadSubida > 0.01 ? Color.Blue : Color.Black;
+                labelActualDownload.ForeColor = velocidadDescarga > 0.01 ? Color.Green : Color.Black;
+                labelActualUpload.ForeColor = velocidadSubida > 0.01 ? Color.Blue : Color.Black;
 
                 // Guardar valores actuales para la próxima comparación
                 bytesRecibidosPrevios = bytesRecibidosActuales;
