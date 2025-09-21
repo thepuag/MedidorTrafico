@@ -61,12 +61,12 @@ namespace MedidorTrafico.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ArrowDown {
+        internal static byte[] ArrowDown {
             get {
                 object obj = ResourceManager.GetObject("ArrowDown", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
@@ -81,12 +81,12 @@ namespace MedidorTrafico.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ArrowUp {
+        internal static byte[] ArrowUp {
             get {
                 object obj = ResourceManager.GetObject("ArrowUp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
@@ -97,6 +97,36 @@ namespace MedidorTrafico.Properties {
             get {
                 object obj = ResourceManager.GetObject("ArrowUp2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Medidor1 {
+            get {
+                object obj = ResourceManager.GetObject("Medidor1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Medidor2 {
+            get {
+                object obj = ResourceManager.GetObject("Medidor2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Medidor3 {
+            get {
+                object obj = ResourceManager.GetObject("Medidor3", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

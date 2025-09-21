@@ -1,4 +1,4 @@
-## MedidorTrafico - Network Traffic Monitor
+## MedidorTrafico - Network Traffic Monitor v 1.00
 
 **MedidorTrafico** is a real-time Windows Forms application that monitors network interface traffic, displaying current download/upload speeds and tracking maximum throughput values.
 [1](#0-0)  The application provides a simple interface for selecting network interfaces and continuously monitoring their data transfer rates. <cite/>

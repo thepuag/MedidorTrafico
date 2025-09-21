@@ -1,0 +1,113 @@
+﻿Constructor
+public MainForm()
+
+
+🔹 Crea la ventana y llama a InitializeComponent() para montar los controles.
+(no recibe parámetros)
+
+Form1_Load
+private void Form1_Load(object sender, EventArgs e)
+
+
+🔹 Se ejecuta cuando la ventana se carga. Busca interfaces de red y prepara iconos.
+
+sender: quién dispara el evento (aquí, el formulario).
+
+e: datos del evento (aquí, nada especial).
+
+comboInterfaces_SelectedIndexChanged
+private void comboInterfaces_SelectedIndexChanged(object sender, EventArgs e)
+
+
+🔹 Se ejecuta al cambiar la interfaz en el combo. Guarda la seleccionada y arranca el timer.
+
+sender: el combo.
+
+e: datos del evento (vacío).
+
+timer_Tick
+private void timer_Tick(object sender, EventArgs e)
+
+
+🔹 Se ejecuta cada segundo. Calcula subida/bajada y actualiza labels e iconos.
+
+sender: el Timer.
+
+e: datos del evento (vacío).
+
+ActualizarIconoSystemTray
+private void ActualizarIconoSystemTray()
+
+
+🔹 Cambia el icono de la bandeja según si hay tráfico de red.
+(no recibe parámetros)
+
+ActualizarTooltipSystemTray
+private void ActualizarTooltipSystemTray()
+
+
+🔹 Actualiza el texto flotante del icono con la velocidad actual.
+(no recibe parámetros)
+
+MainForm_Resize
+private void MainForm_Resize(object sender, EventArgs e)
+
+
+🔹 Se ejecuta al cambiar tamaño de la ventana. Si está marcado, la esconde al minimizar.
+
+sender: la ventana.
+
+e: datos del evento (vacío).
+
+notifyIcon_DoubleClick
+private void notifyIcon_DoubleClick(object sender, EventArgs e)
+
+
+🔹 Doble clic en el icono → muestra la ventana.
+
+sender: el NotifyIcon.
+
+e: datos del evento (vacío).
+
+mostrarToolStripMenuItem_Click
+private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+🔹 Opción “Mostrar” del menú → enseña la ventana.
+
+sender: el item del menú.
+
+e: datos del evento (vacío).
+
+salirToolStripMenuItem_Click
+private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+🔹 Opción “Salir” → cierra la app y quita el icono.
+
+sender: el item del menú.
+
+e: datos del evento (vacío).
+
+MostrarVentana
+private void MostrarVentana()
+
+
+🔹 Hace visible la ventana otra vez, la pone en primer plano.
+(no recibe parámetros)
+
+SetVisibleCore
+protected override void SetVisibleCore(bool value)
+
+
+🔹 Controla si la ventana debe mostrarse u ocultarse (sirve para minimizar a bandeja).
+
+value: true si debe mostrarse, false si no.
+
+OnFormClosing
+protected override void OnFormClosing(FormClosingEventArgs e)
+
+
+🔹 Al cerrar la ventana, limpia el icono de la bandeja y libera recursos.
+
+e: datos sobre el cierre (ej. si se puede cancelar).
